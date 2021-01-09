@@ -13,7 +13,7 @@ void main(List<String> arguments) async {
     if (request.url.queryParameters['hub.verify_token'] == Keys.VERIFY_TOKEN) {
       return Response.ok(request.url.queryParameters['hub.challenge']);
     } else {
-      return Response.ok('Hello! You are not authorized biatch!');
+      return Response.ok('Hello! You are not authorized');
     }
   });
 
@@ -43,7 +43,7 @@ void main(List<String> arguments) async {
   });
 
   var server = await io.serve(
-      bot, '0.0.0.0', int.parse(Platform.environment['PORT']) ?? 8080);
+      bot, '127.0.0.1', int.parse(Platform.environment['PORT']) ?? 8080);
 }
 
 String processMessage(String text) {
@@ -53,11 +53,11 @@ String processMessage(String text) {
     case 'hello':
       reply = 'Hi! How can I help You ?';
       break;
-    case 'thanks':
-      reply = 'Welcome!';
+    case 'how can i contact you?':
+      reply = 'You can contact me via my email: aadarshadhakalg@gmail.com!';
       break;
     default:
-      reply = 'We\'ll reach out to you soon! Thank you for messaging.';
+      reply = 'I\'ll reach out to you soon! Thank you for messaging.';
   }
 
   return reply;
