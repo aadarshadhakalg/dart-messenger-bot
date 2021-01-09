@@ -43,7 +43,7 @@ void main(List<String> arguments) async {
   });
 
   var server = await io.serve(
-      bot, '127.0.0.1', int.parse(Platform.environment['PORT']) ?? 8080);
+      bot, '0.0.0.0', int.parse(Platform.environment['PORT']) ?? 8080);
 }
 
 String processMessage(String text) {
