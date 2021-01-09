@@ -41,7 +41,7 @@ void main(List<String> arguments) async {
     return Response.ok('Reply Sent!');
   });
 
-  var server = await io.serve(bot, '127.0.0.1', 8080);
+  var server = await io.serve(bot, '0.0.0.0', 8080);
 }
 
 String processMessage(String text) {
