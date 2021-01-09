@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:bot/keys.dart';
 import 'package:shelf_router/shelf_router.dart';
 import 'package:shelf/shelf.dart';
@@ -41,7 +42,8 @@ void main(List<String> arguments) async {
     return Response.ok('Reply Sent!');
   });
 
-  var server = await io.serve(bot, '0.0.0.0', 8080);
+  var server = await io.serve(
+      bot, '0.0.0.0', int.parse(Platform.environment['PORT']) ?? 8080);
 }
 
 String processMessage(String text) {
